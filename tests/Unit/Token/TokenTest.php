@@ -159,7 +159,6 @@ class TokenTest extends TestCase
      */
     public function testLookupIdentifier(): void
     {
-        $token = new Token('', '');
         $tests = [
             ['function', TokenType::FUNCTION],
             ['let', TokenType::LET],
@@ -174,7 +173,7 @@ class TokenTest extends TestCase
 
         foreach ($tests as $test) {
             [$input, $expected] = $test;
-            $result = $token->lookupIdentifier($input);
+            $result = Token::lookupIdentifier($input);
             $this->assertEquals($expected, $result, "lookupIdentifier('{$input}') = {$result}, expected {$expected}");
         }
     }

@@ -51,9 +51,9 @@ class Token
      * @param string $identifier 标识符
      * @return string 返回标识符对应的 Token 类型，如果未找到则返回 IDENTIFIER 类型
      */
-    public function lookupIdentifier(string $identifier): string
+    public static function lookupIdentifier(string $identifier): string
     {
-        $keywords = $this->getKeywords();
+        $keywords = self::getKeywords();
         return $keywords[$identifier] ?? TokenType::IDENTIFIER;
     }
 
@@ -62,7 +62,7 @@ class Token
      *
      * @return array
      */
-    private function getKeywords(): array
+    private static function getKeywords(): array
     {
         return [
             'function' => TokenType::FUNCTION,
